@@ -40,9 +40,12 @@
         self.starSize = starSize;
         self.value = 0;
         
+        self.backgroundColor = [UIColor greenColor];
+        
         for (int i = 0; i < starNum; i++)
         {
             LYStarLayer *star = [LYStarLayer layer];
+            star.backgroundColor = [UIColor blackColor].CGColor;
             star.selectStrokeColor = style.selectStrokeColor;
             star.defaultStrokeColor = style.defaultStrokeColor;
             star.selectFillColor = style.selectFillColor;
@@ -51,12 +54,14 @@
             [self.layer addSublayer:star];
             [self.starAry addObject:star];
             
-            star.bounds = CGRectMake(0, 0, starSize.width, starSize.width);
+            star.bounds = CGRectMake(0, 0, starSize.width, starSize.height);
             star.state = LYStarStateNotSelect;
             
-            CGFloat margin = (frame.size.width - (starNum * starSize.width)) * 0.5;
-            
-            star.position = CGPointMake(margin + (i * starSize.width) + (starSize.width * 0.5), frame.size.height * 0.5);
+            CGFloat margin = (frame.size.width - (starNum * starSize.width)) / (starNum - 1) ;
+
+            CGFloat x = (starSize.width / 2.0) + (starSize.width + margin) * i;
+            CGFloat y = frame.size.height * 0.5;
+            star.position = CGPointMake(x, y);
             
             [star setNeedsDisplay];
         }
@@ -85,54 +90,65 @@
 
 - (void)changeStyle:(CGPoint)point{
     
-    CGFloat margin = (self.frame.size.width - (self.starNum * self.starSize.width)) * 0.5;
+//    CGFloat margin = (self.frame.size.width - (self.starNum * self.starSize.width)) / (self.starNum - 1) ;
     
-    int index = (point.x - margin) / self.starSize.width;
+    NSNumber *indexValue = nil;
     
-    for (int i = 0; i < self.starAry.count; i++)
-    {
-        LYStarLayer *star = [self.starAry objectAtIndex:i];
-        
-        if (i < index)
+    for (int i = 0; i < self.starAry.count; i++) {
+        if (point.x / (i * self.starSize.width) >= 1) {
+            indexValue = @(i);
+        }else {
+            indexValue = nil;
+        }
+    }
+    
+    if (indexValue) {
+        int index = [indexValue intValue];
+        for (int i = 0; i < self.starAry.count; i++)
         {
-            star.state = LYStarStateFullSelect;
-        }else
-            if (i == index)
+            LYStarLayer *star = [self.starAry objectAtIndex:i];
+            if (i < index)
             {
-                if (i == 0)
+                star.state = LYStarStateFullSelect;
+            }else
+                if (i == index)
                 {
-                    if (point.x < 0)
+                    if (i == 0)
                     {
-                        star.state = LYStarStateNotSelect;
+                        if (point.x < 0)
+                        {
+                            star.state = LYStarStateNotSelect;
+                        }else
+                            if (point.x > self.starSize.width * 0.5)
+                            {
+                                star.state = LYStarStateFullSelect;
+                            }else
+                            {
+                                star.state = LYStarStateMoietySelect;
+                            }
                     }else
-                    if (point.x > self.starSize.width * 0.5)
                     {
-                        star.state = LYStarStateFullSelect;
-                    }else
-                    {
-                        star.state = LYStarStateMoietySelect;
+                        if (point.x - self.starSize.width * index > self.starSize.width * 0.5)
+                        {
+                            star.state = LYStarStateFullSelect;
+                        }else
+                        {
+                            star.state = LYStarStateMoietySelect;
+                        }
                     }
                 }else
                 {
-                    if (point.x - self.starSize.width * index > self.starSize.width * 0.5)
-                    {
-                        star.state = LYStarStateFullSelect;
-                    }else
-                    {
-                        star.state = LYStarStateMoietySelect;
-                    }
+                    star.state = LYStarStateNotSelect;
                 }
-            }else
-            {
-                star.state = LYStarStateNotSelect;
-            }
-        
-        [CATransaction begin];
-        [CATransaction setDisableActions:YES];
-        [star setNeedsDisplay];
-        [CATransaction commit];
-        
+            
+            [CATransaction begin];
+            [CATransaction setDisableActions:YES];
+            [star setNeedsDisplay];
+            [CATransaction commit];
+        }
     }
+    
+    
     self.value = 0;
     for (int i = 0; i < self.starAry.count; i++)
     {
