@@ -1,7 +1,7 @@
 # LYSGradeView
 A simple score star component
 
-[image](https://github.com/LIYANGSHUAI/LYSGradeView/blob/master/gif.gif)
+![image](https://github.com/LIYANGSHUAI/LYSGradeView/blob/master/gif.gif)
 
 
 使用方法:
