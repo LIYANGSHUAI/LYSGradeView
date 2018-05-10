@@ -2,6 +2,15 @@
 A simple score star component
 
 
+使用方法:
+
+1.直接下载demo
+
+2.使用cocopods
+
+pod 'LYSGradeView', '~> 0.0.2'
+
+
 ```objc
 @class LYSGradeView,LYStarStyle;
 
