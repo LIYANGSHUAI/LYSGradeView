@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LYSGradeView"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "A simple score control"
 
   # This description is used to generate tags and improve search results.
@@ -82,7 +82,7 @@ A simple score control
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/LIYANGSHUAI/LYSGradeView.git", :tag => "0.0.1" }
+  s.source       = { :git => "https://github.com/LIYANGSHUAI/LYSGradeView.git", :tag => s.version }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

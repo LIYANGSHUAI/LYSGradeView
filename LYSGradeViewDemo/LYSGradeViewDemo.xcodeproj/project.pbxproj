@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		CC71618B1FBD24D700C58B53 /* LYSGradeView.podspec in Resources */ = {isa = PBXBuildFile; fileRef = CC71618A1FBD24D700C58B53 /* LYSGradeView.podspec */; };
 		CC71618D1FBD24DC00C58B53 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CC71618C1FBD24DC00C58B53 /* README.md */; };
-		CCC4280A1FBC416100615E45 /* LYStarStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC428091FBC416100615E45 /* LYStarStyle.m */; };
 		CCC8A7BD1FBAE5E100003388 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC8A7BC1FBAE5E100003388 /* AppDelegate.m */; };
 		CCC8A7C01FBAE5E100003388 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC8A7BF1FBAE5E100003388 /* ViewController.m */; };
 		CCC8A7C31FBAE5E100003388 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC8A7C11FBAE5E100003388 /* Main.storyboard */; };
@@ -17,14 +16,11 @@
 		CCC8A7C81FBAE5E100003388 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCC8A7C61FBAE5E100003388 /* LaunchScreen.storyboard */; };
 		CCC8A7CB1FBAE5E100003388 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC8A7CA1FBAE5E100003388 /* main.m */; };
 		CCC8A7D41FBAE60900003388 /* LYSGradeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC8A7D31FBAE60900003388 /* LYSGradeView.m */; };
-		CCC8A7D71FBAE68000003388 /* LYStarLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CCC8A7D61FBAE68000003388 /* LYStarLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CC71618A1FBD24D700C58B53 /* LYSGradeView.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LYSGradeView.podspec; path = ../../LYSGradeView.podspec; sourceTree = "<group>"; };
 		CC71618C1FBD24DC00C58B53 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
-		CCC428081FBC416100615E45 /* LYStarStyle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYStarStyle.h; sourceTree = "<group>"; };
-		CCC428091FBC416100615E45 /* LYStarStyle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYStarStyle.m; sourceTree = "<group>"; };
 		CCC8A7B81FBAE5E100003388 /* LYSGradeViewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYSGradeViewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCC8A7BB1FBAE5E100003388 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CCC8A7BC1FBAE5E100003388 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -37,8 +33,6 @@
 		CCC8A7CA1FBAE5E100003388 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CCC8A7D21FBAE60900003388 /* LYSGradeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYSGradeView.h; sourceTree = "<group>"; };
 		CCC8A7D31FBAE60900003388 /* LYSGradeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYSGradeView.m; sourceTree = "<group>"; };
-		CCC8A7D51FBAE68000003388 /* LYStarLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYStarLayer.h; sourceTree = "<group>"; };
-		CCC8A7D61FBAE68000003388 /* LYStarLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYStarLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +86,6 @@
 			children = (
 				CCC8A7D21FBAE60900003388 /* LYSGradeView.h */,
 				CCC8A7D31FBAE60900003388 /* LYSGradeView.m */,
-				CCC8A7D51FBAE68000003388 /* LYStarLayer.h */,
-				CCC8A7D61FBAE68000003388 /* LYStarLayer.m */,
-				CCC428081FBC416100615E45 /* LYStarStyle.h */,
-				CCC428091FBC416100615E45 /* LYStarStyle.m */,
 			);
 			name = LYSGradeView;
 			path = ../../LYSGradeView;
@@ -127,7 +117,7 @@
 		CCC8A7B01FBAE5E100003388 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = HENAN;
 				TargetAttributes = {
 					CCC8A7B71FBAE5E100003388 = {
@@ -176,10 +166,8 @@
 			files = (
 				CCC8A7C01FBAE5E100003388 /* ViewController.m in Sources */,
 				CCC8A7CB1FBAE5E100003388 /* main.m in Sources */,
-				CCC4280A1FBC416100615E45 /* LYStarStyle.m in Sources */,
 				CCC8A7BD1FBAE5E100003388 /* AppDelegate.m in Sources */,
 				CCC8A7D41FBAE60900003388 /* LYSGradeView.m in Sources */,
-				CCC8A7D71FBAE68000003388 /* LYStarLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +207,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -226,6 +215,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -274,6 +264,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -281,6 +272,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

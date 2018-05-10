@@ -7,57 +7,60 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LYStarStyle.h"
 
-@class LYSGradeView;
+@class LYSGradeView,LYStarStyle;
 
 @protocol LYSGradeViewDelegate <NSObject>
 
-/**
- 实时检测评分值
-
- @param gradeView 视图
- @param value 数值
- */
+// 实时检测评分值
 - (void)gradeView:(LYSGradeView *)gradeView didUpdateValue:(CGFloat)value;
 @end
 
 @interface LYSGradeView : UIView
 
-/**
- 设置代理,处理监测事件
- */
+// 设置代理,处理监测事件
 @property (nonatomic,assign)id<LYSGradeViewDelegate> delegate;
 
-/**
- 监听评分回调
- */
+@property (nonatomic,assign)CGFloat value;
+
+// 监听评分回调
 @property (nonatomic,copy)void(^updateValueBlock)(LYSGradeView *gradeView,CGFloat value);
-/**
- 构造器创建评分视图
 
- @param frame 评分视图位置
- @param starNum 小星星个数
- @param starSize 小星星大小
- @param style 小星星样式
- @return 返回评分视图
- */
-+ (instancetype)gradeViewWithFrame:(CGRect)frame
-                           starNum:(NSInteger)starNum
-                          starSize:(CGSize)starSize
-                             style:(LYStarStyle *)style;
+// 构造器创建评分视图
++ (instancetype)gradeViewWithFrame:(CGRect)frame starNum:(NSInteger)starNum starSize:(CGSize)starSize style:(LYStarStyle *)style;
 
-/**
- 创建评分视图
+// 创建评分视图
+- (instancetype)initWithFrame:(CGRect)frame starNum:(NSInteger)starNum starSize:(CGSize)starSize style:(LYStarStyle *)style;
+@end
 
- @param frame 评分视图位置
- @param starNum 小星星个数
- @param starSize 小星星大小
- @param style 小星星样式
- @return 返回评分视图
- */
-- (instancetype)initWithFrame:(CGRect)frame
-                      starNum:(NSInteger)starNum
-                     starSize:(CGSize)starSize
-                        style:(LYStarStyle *)style;
+typedef NS_ENUM(NSUInteger, LYStarState) {
+    LYStarStateNotSelect,        // 没有选中
+    LYStarStateMoietySelect,     // 选中一半
+    LYStarStateFullSelect,       // 完全选中
+};
+
+@interface LYStarStyle : NSObject
+// 满星颜色
+@property (nonatomic,strong)UIColor *selectFillColor;
+// 空星颜色
+@property (nonatomic,strong)UIColor *defaultFillColor;
+
+// 线宽
+@property (nonatomic,assign)CGFloat strokeWidth;
+// 满星线条颜色
+@property (nonatomic,strong)UIColor *selectStrokeColor;
+// 空星线条颜色
+@property (nonatomic,strong)UIColor *defaultStrokeColor;
+
++ (instancetype)style;
+@end
+
+
+@interface LYStarLayer : CALayer
+@property (nonatomic,assign)LYStarState state;
+@property (nonatomic,strong)UIColor *selectFillColor;
+@property (nonatomic,strong)UIColor *defaultFillColor;
+@property (nonatomic,assign)CGFloat strokeWidth;
+@property (nonatomic,strong)UIColor *selectStrokeColor;
+@property (nonatomic,strong)UIColor *defaultStrokeColor;
 @end
